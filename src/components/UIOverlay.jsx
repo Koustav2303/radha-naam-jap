@@ -11,17 +11,19 @@ export default function UIOverlay() {
         <AudioPlayer />
       </div>
 
-      {/* Developer Credit Footer */}
-      <div className="absolute bottom-8 z-20 pointer-events-auto text-orange-200/50 text-xs md:text-sm tracking-[0.2em] uppercase font-medium">
-        Developed by{' '}
-        <a 
-          href="https://koustav2303.github.io/koustavpan-portfolio/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-orange-400 font-bold hover:text-orange-100 hover:drop-shadow-[0_0_10px_rgba(255,165,0,0.8)] transition-all duration-300 ease-in-out"
-        >
-          Koustav
-        </a>
+      {/* Developer Credit Footer - Optimized for Mobile */}
+      <div className="absolute bottom-12 md:bottom-8 w-full text-center z-30 pointer-events-auto px-4">
+        <p className="text-orange-200/60 text-xs md:text-sm tracking-[0.2em] uppercase font-medium drop-shadow-md">
+          Developed by{' '}
+          <a 
+            href="https://koustav2303.github.io/koustavpan-portfolio/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-orange-400 font-bold hover:text-orange-100 hover:drop-shadow-[0_0_15px_rgba(255,165,0,1)] transition-all duration-300 ease-in-out whitespace-nowrap"
+          >
+            Koustav
+          </a>
+        </p>
       </div>
       
     </div>

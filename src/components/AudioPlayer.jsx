@@ -1,15 +1,18 @@
 import { useRef, useState } from 'react';
 import audioFile from '../assets/audio/radhanam.mp3';
+import { setupAudio } from '../utils/audioAnalyzer'; // Import the analyzer
 
 export default function AudioPlayer() {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const togglePlay = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
+    if (!isPlaying) {
+      // Initialize the audio analyzer on first play
+      setupAudio(audioRef.current);
       audioRef.current.play();
+    } else {
+      audioRef.current.pause();
     }
     setIsPlaying(!isPlaying);
   };
@@ -27,7 +30,8 @@ export default function AudioPlayer() {
         </span>
       </button>
 
-      <audio ref={audioRef} src={audioFile} loop />
+      {/* Added crossOrigin anonymous to allow audio processing */}
+      <audio ref={audioRef} src={audioFile} loop crossOrigin="anonymous" />
     </div>
   );
 }
